@@ -32,7 +32,7 @@
 
 <!-- Google Analytics — solo carga tras consentimiento explícito (Ley 1581/2012) -->
 <script>
-  var GA_ID = 'G-XXXXXXXXXX';
+  var GA_ID = '${GA_MEASUREMENT_ID}';
   function cargarGA() {
     if (document.getElementById('ga-script')) return;
     var s = document.createElement('script');
