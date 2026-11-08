@@ -9,14 +9,14 @@
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
-<link rel="canonical" href="https://peluqueriashadu.com/">
+<link rel="canonical" href="https://shadu.co/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="business.business">
 <meta property="og:title" content="Peluquería SHADU — Cortes, Color y Cuidado Capilar en Bogotá">
 <meta property="og:description" content="30+ años de experiencia en cortes, coloración, mechas, cepillados y uñas. Bogotá. Agenda por WhatsApp.">
-<meta property="og:image" content="img/hero.jpg">
-<meta property="og:url" content="https://peluqueriashadu.com/">
+<meta property="og:image" content="https://shadu.co/img/hero.jpg">
+<meta property="og:url" content="https://shadu.co/">
 <meta property="og:locale" content="es_CO">
 <meta property="og:site_name" content="Peluquería SHADU">
 <meta property="business:contact_data:phone_number" content="+573134856080">
@@ -28,7 +28,16 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Peluquería SHADU — Bogotá">
 <meta name="twitter:description" content="Cortes, coloración, mechas y cuidado capilar con más de 30 años de oficio. Agenda por WhatsApp.">
-<meta name="twitter:image" content="img/hero.jpg">
+<meta name="twitter:image" content="https://shadu.co/img/hero.jpg">
+
+<!-- Google Analytics — reemplazar G-XXXXXXXXXX con tu Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,14 +51,14 @@
   "@graph": [
     {
       "@type": ["HairSalon", "LocalBusiness"],
-      "@id": "https://peluqueriashadu.com/#business",
+      "@id": "https://shadu.co/#business",
       "name": "Peluquería SHADU",
       "alternateName": "Shadu Peluquería",
-      "description": "Peluquería en Bogotá con más de 30 años de experiencia. Servicios de corte, coloración, mechas, balayage, iluminaciones, cepillados, manicure y pedicure. Atendida personalmente por Héctor Niño y Susana Barbosa Barrios.",
-      "url": "https://peluqueriashadu.com/",
+      "description": "Peluquería en Bogotá con más de 30 años de experiencia. Servicios de corte, coloración, mechas, balayage, iluminaciones, cepillados, manicure y pedicure. Ubicada en la Carrera 90H #91-52, localidad de Engativá. Atendida personalmente por Héctor Niño y Susana Barbosa.",
+      "url": "https://shadu.co/",
       "telephone": "+573134856080",
-      "image": ["img/logo.jpg", "img/hero.jpg", "img/team.jpg"],
-      "logo": "img/logo.jpg",
+      "image": ["https://shadu.co/img/logo.jpg", "https://shadu.co/img/hero.jpg", "https://shadu.co/img/team.jpg"],
+      "logo": "https://shadu.co/img/logo.jpg",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Carrera 90H #91-52",
@@ -59,6 +68,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
+        "latitude": "4.6975",
+        "longitude": "-74.1118",
         "addressCountry": "CO"
       },
       "priceRange": "$",
@@ -75,20 +86,6 @@
         "contactOption": "TollFree",
         "availableLanguage": "Spanish"
       },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "09:00",
-          "closes": "19:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "09:00",
-          "closes": "17:00"
-        }
-      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Servicios de Peluquería SHADU",
@@ -108,7 +105,7 @@
               "@type": "Service",
               "name": "Coloración y tinturas",
               "description": "Tinte completo, retoque de raíz, cubrimiento de canas, mechas, balayage, iluminaciones y corrección de color.",
-              "provider": {"@type": "Person", "name": "Susana Barbosa Barrios"}
+              "provider": {"@type": "Person", "name": "Susana Barbosa"}
             }
           },
           {
@@ -117,7 +114,7 @@
               "@type": "Service",
               "name": "Mechas y balayage",
               "description": "Mechas tradicionales, balayage y técnicas de iluminación de alta fusión.",
-              "provider": {"@type": "Person", "name": "Susana Barbosa Barrios"}
+              "provider": {"@type": "Person", "name": "Susana Barbosa"}
             }
           },
           {
@@ -126,7 +123,7 @@
               "@type": "Service",
               "name": "Cepillado",
               "description": "Cepillado liso con brillo, con ondas y volumen, o complementario a tu servicio de color.",
-              "provider": {"@type": "Person", "name": "Susana Barbosa Barrios"}
+              "provider": {"@type": "Person", "name": "Susana Barbosa"}
             }
           },
           {
@@ -135,7 +132,7 @@
               "@type": "Service",
               "name": "Manicure y pedicure",
               "description": "Manicure, pedicure y combo manos y pies.",
-              "provider": {"@type": "Person", "name": "Susana Barbosa Barrios"}
+              "provider": {"@type": "Person", "name": "Susana Barbosa"}
             }
           }
         ]
@@ -149,16 +146,31 @@
         },
         {
           "@type": "Person",
-          "name": "Susana Barbosa Barrios",
+          "name": "Susana Barbosa",
           "jobTitle": "Colorista y Especialista en Belleza",
           "description": "Experta en coloración, tinturas, mechas, balayage, cepillados, manicure y pedicure con más de 30 años de trayectoria."
         }
       ],
-      "sameAs": []
+      "sameAs": [
+        "TODO:REEMPLAZAR_CON_URL_GOOGLE_BUSINESS_PROFILE"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://shadu.co/#como-agendar",
+      "name": "Cómo agendar una cita en Peluquería SHADU",
+      "description": "Proceso de agendamiento y atención en Peluquería SHADU, Bogotá.",
+      "step": [
+        {"@type": "HowToStep", "position": 1, "name": "Escríbenos por WhatsApp", "text": "Cuéntanos qué quieres al 313 485 6080. Si tienes foto de referencia, adjúntala."},
+        {"@type": "HowToStep", "position": 2, "name": "Diagnóstico", "text": "Revisamos tu cabello, historial de color y tono de piel antes de proponer nada."},
+        {"@type": "HowToStep", "position": 3, "name": "Tu servicio", "text": "Trabajamos sin afán y te explicamos cada paso. Conoces el valor antes de empezar."},
+        {"@type": "HowToStep", "position": 4, "name": "Cuidado en casa", "text": "Te recomendamos los productos Marcel France o Salerm según tu tipo de cabello."}
+      ],
+      "tool": [{"@type": "HowToTool", "name": "WhatsApp"}]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://peluqueriashadu.com/#faq",
+      "@id": "https://shadu.co/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -181,7 +193,7 @@
           "name": "¿Realizan asesoría antes de cambiar el color de cabello?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí, siempre. Susana Barbosa Barrios revisa el estado de tu cabello, su historial de color y tu tono de piel antes de proponer cualquier servicio. Conoces el precio antes de empezar."
+            "text": "Sí, siempre. Susana Barbosa revisa el estado de tu cabello, su historial de color y tu tono de piel antes de proponer cualquier servicio. Conoces el precio antes de empezar."
           }
         },
         {
@@ -197,7 +209,7 @@
           "name": "¿Hacen mechas y balayage en Bogotá?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Susana Barbosa Barrios realiza mechas tradicionales, balayage, iluminaciones y corrección de color con más de 30 años de experiencia. Agenda tu cita por WhatsApp al 3134856080."
+            "text": "Sí. Susana Barbosa realiza mechas tradicionales, balayage, iluminaciones y corrección de color con más de 30 años de experiencia. Agenda tu cita por WhatsApp al 3134856080."
           }
         },
         {
@@ -205,7 +217,7 @@
           "name": "¿Ofrecen manicure y pedicure?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Peluquería SHADU ofrece manicure, pedicure y combo manos y pies, realizados por Susana Barbosa Barrios en el mismo salón."
+            "text": "Sí. Peluquería SHADU ofrece manicure, pedicure y combo manos y pies, realizados por Susana Barbosa en el mismo salón."
           }
         },
         {
@@ -222,6 +234,46 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Puedes agendar directamente por WhatsApp al número 313 485 6080. Cuéntanos qué servicio quieres y te confirmamos horario y precio sin compromiso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta un balayage en Bogotá en Peluquería SHADU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El precio del balayage en Peluquería SHADU depende del largo del cabello y de la técnica. Escríbenos por WhatsApp al 3134856080 y te damos una cotización exacta antes de agendar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto dura el balayage en el cabello?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El balayage bien cuidado dura entre 3 y 6 meses sin necesidad de retoque. Susana Barbosa te da recomendaciones de productos para mantener el color más tiempo desde casa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre mechas y balayage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las mechas tradicionales se hacen con papel aluminio y producen un contraste más definido. El balayage se pinta a mano libre sobre el cabello para lograr un efecto más natural y degradado. Ambas técnicas están disponibles en Peluquería SHADU."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Con qué frecuencia debo retocar la raíz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para un tinte de cobertura completa, el retoque de raíz suele hacerse cada 4 a 6 semanas. Susana Barbosa te asesora según tu color base y la velocidad de crecimiento de tu cabello."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta un cepillado en Peluquería SHADU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El precio del cepillado varía según el largo del cabello. Escríbenos por WhatsApp al 3134856080 para una cotización rápida y sin compromiso."
           }
         }
       ]
@@ -471,9 +523,9 @@
 <section id="inicio" class="hero" aria-label="Inicio">
   <div class="hero-inner">
     <div style="display:flex;flex-direction:column;gap:28px">
-      <p class="hero-eyebrow">Peluquería · Bogotá, Colombia</p>
+      <p class="hero-eyebrow">Peluquería · Engativá, Bogotá</p>
       <h1 class="hero-h1">Corte y color con más de <em>30 años</em> de oficio.</h1>
-      <p class="hero-desc">Héctor Niño diseña tu corte — para hombre y mujer. Susana Barbosa Barrios es experta en color, tinturas, cepillados, manicure y pedicure. Trabajamos con productos Marcel France y Salerm. Antes de tocar tu cabello, te escuchamos.</p>
+      <p class="hero-desc">Héctor Niño diseña tu corte — para hombre y mujer. Susana Barbosa es experta en color, tinturas, cepillados, manicure y pedicure. Trabajamos con productos Marcel France y Salerm. Antes de tocar tu cabello, te escuchamos.</p>
       <div class="hero-ctas">
         <a class="btn-primary lg" href="https://wa.me/573134856080?text=Hola%20Shadu%2C%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 7.9 19.6z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-1-1 .8a4 4 0 0 1-2.2-2.2l.8-1-1-1.9z"/></svg>
@@ -714,7 +766,7 @@
     <div class="team-grid">
       <article class="team-card" itemscope itemtype="https://schema.org/Person">
         <div class="team-photo" aria-hidden="true">
-          <img src="img/team.jpg" alt="Susana Barbosa Barrios y Héctor Niño, dueños de Peluquería SHADU Bogotá" width="440" height="330" loading="lazy" itemprop="image">
+          <img src="img/team.jpg" alt="Susana Barbosa y Héctor Niño, dueños de Peluquería SHADU Bogotá" width="440" height="330" loading="lazy" itemprop="image">
         </div>
         <div class="team-body">
           <div>
@@ -733,11 +785,11 @@
 
       <article class="team-card" itemscope itemtype="https://schema.org/Person">
         <div class="team-photo" aria-hidden="true">
-          <img src="img/gallery-01.jpg" alt="Trabajo de Susana Barbosa Barrios — mechas turquesa en Peluquería SHADU" width="440" height="330" loading="lazy" itemprop="image">
+          <img src="img/gallery-01.jpg" alt="Trabajo de Susana Barbosa — mechas turquesa en Peluquería SHADU" width="440" height="330" loading="lazy" itemprop="image">
         </div>
         <div class="team-body">
           <div>
-            <h3 class="team-name" itemprop="name">Susana Barbosa Barrios</h3>
+            <h3 class="team-name" itemprop="name">Susana Barbosa</h3>
             <p class="team-role" itemprop="jobTitle">Experta en color · más de 30 años de oficio</p>
           </div>
           <p class="team-desc" itemprop="description">Domina tinturas, cubrimiento de canas, mechas y correcciones de color. Completa tu visita con cepillados, manicure y pedicure, y te dice qué productos usar para que el color dure.</p>
@@ -884,7 +936,7 @@
       </details>
       <details>
         <summary role="listitem">¿Dónde queda Peluquería SHADU en Bogotá?<span class="faq-plus" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">Estamos ubicados en la <strong>Carrera 90H #91-52, Bogotá</strong>. Escríbenos por WhatsApp al <strong>313 485 6080</strong> para confirmar horario antes de visitarnos.</p>
+        <p class="faq-answer">Estamos ubicados en la <strong>Carrera 90H #91-52, localidad de Engativá, Bogotá</strong>. Escríbenos por WhatsApp al <strong>313 485 6080</strong> para confirmar disponibilidad antes de visitarnos.</p>
       </details>
       <details>
         <summary role="listitem">¿Cómo funcionan las promociones entre semana?<span class="faq-plus" aria-hidden="true">+</span></summary>
@@ -893,6 +945,26 @@
       <details>
         <summary role="listitem">¿Qué medios de pago aceptan?<span class="faq-plus" aria-hidden="true">+</span></summary>
         <p class="faq-answer">Aceptamos efectivo, Nequi y Daviplata. Para confirmar disponibilidad de pago con tarjeta, escríbenos antes de tu cita.</p>
+      </details>
+      <details>
+        <summary role="listitem">¿Cuánto cuesta un balayage en Bogotá?<span class="faq-plus" aria-hidden="true">+</span></summary>
+        <p class="faq-answer">El precio del balayage depende del largo de tu cabello y de la técnica a aplicar. Escríbenos por WhatsApp al <strong>3134856080</strong> y te damos una cotización exacta antes de agendar.</p>
+      </details>
+      <details>
+        <summary role="listitem">¿Cuánto dura el balayage?<span class="faq-plus" aria-hidden="true">+</span></summary>
+        <p class="faq-answer">El balayage bien cuidado dura entre 3 y 6 meses sin necesidad de retoque. Susana Barbosa te recomienda los productos Marcel France o Salerm para mantener el color desde casa.</p>
+      </details>
+      <details>
+        <summary role="listitem">¿Qué diferencia hay entre mechas y balayage?<span class="faq-plus" aria-hidden="true">+</span></summary>
+        <p class="faq-answer">Las mechas se hacen con papel aluminio y producen un contraste más definido. El balayage se pinta a mano libre para un efecto más natural y degradado. Ambas técnicas están disponibles con Susana Barbosa en Peluquería SHADU.</p>
+      </details>
+      <details>
+        <summary role="listitem">¿Con qué frecuencia debo retocar la raíz?<span class="faq-plus" aria-hidden="true">+</span></summary>
+        <p class="faq-answer">Para un tinte de cobertura completa, el retoque de raíz se recomienda cada 4 a 6 semanas. Susana Barbosa te asesora según tu color base y velocidad de crecimiento.</p>
+      </details>
+      <details>
+        <summary role="listitem">¿Cuánto cuesta un cepillado?<span class="faq-plus" aria-hidden="true">+</span></summary>
+        <p class="faq-answer">El precio del cepillado varía según el largo del cabello. Escríbenos por WhatsApp al <strong>3134856080</strong> para una cotización rápida y sin compromiso.</p>
       </details>
     </div>
   </div>
@@ -935,14 +1007,6 @@
         <div>
           <dt class="contact-dt">WhatsApp</dt>
           <dd class="contact-dd"><a href="https://wa.me/573134856080" target="_blank" rel="noopener" style="color:var(--copper)">313 485 6080</a></dd>
-        </div>
-        <div>
-          <dt class="contact-dt">Lunes a viernes</dt>
-          <dd class="contact-dd">9:00 a.m. – 7:00 p.m.</dd>
-        </div>
-        <div>
-          <dt class="contact-dt">Sábados</dt>
-          <dd class="contact-dd">9:00 a.m. – 5:00 p.m.</dd>
         </div>
       </dl>
     </div>
