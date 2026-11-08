@@ -1,3 +1,6 @@
+# Secretos — nunca al repo
+.env
+
 # OS
 .DS_Store
 Thumbs.db
