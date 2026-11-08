@@ -30,13 +30,25 @@
 <meta name="twitter:description" content="Cortes, coloración, mechas y cuidado capilar con más de 30 años de oficio. Agenda por WhatsApp.">
 <meta name="twitter:image" content="https://shadu.co/img/hero.jpg">
 
-<!-- Google Analytics — reemplazar G-XXXXXXXXXX con tu Measurement ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- Google Analytics — solo carga tras consentimiento explícito (Ley 1581/2012) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  var GA_ID = 'G-XXXXXXXXXX';
+  function cargarGA() {
+    if (document.getElementById('ga-script')) return;
+    var s = document.createElement('script');
+    s.id = 'ga-script';
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID, {anonymize_ip: true});
+  }
+  try {
+    if (localStorage.getItem('shadu_cookie_consent') === 'aceptado') cargarGA();
+  } catch(e) {}
 </script>
 
 <!-- Fonts -->
@@ -1051,6 +1063,110 @@
 <a class="wa-float" href="https://wa.me/573134856080?text=Hola%20Shadu%2C%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
+<!-- ============== COOKIE CONSENT (Ley 1581/2012) ============== -->
+<div id="cookie-banner" role="alertdialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--black);border-top:1px solid rgba(245,241,236,.15);padding:20px var(--px);display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center">
+  <div style="flex:1 1 300px">
+    <p id="cookie-title" style="font-size:14px;font-weight:600;color:var(--cream);margin-bottom:4px">Este sitio usa cookies analíticas</p>
+    <p id="cookie-desc" style="font-size:13px;color:var(--text-muted);line-height:1.5">Usamos Google Analytics para entender cómo nos visitan y mejorar el sitio. No vendemos tus datos. Conforme a la <strong style="color:#8892a4">Ley 1581 de 2012</strong>, puedes aceptar o rechazar el uso de cookies no esenciales. <button onclick="abrirPolitica()" style="background:none;border:none;color:var(--copper-light);font-size:13px;cursor:pointer;padding:0;text-decoration:underline">Ver política de privacidad</button></p>
+  </div>
+  <div style="display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap">
+    <button id="btn-rechazar" onclick="rechazarCookies()" style="min-height:40px;padding:0 18px;border-radius:999px;border:1px solid rgba(245,241,236,.25);background:transparent;color:var(--text-muted);font-size:13px;font-weight:500;cursor:pointer">Rechazar</button>
+    <button id="btn-aceptar" onclick="aceptarCookies()" style="min-height:40px;padding:0 20px;border-radius:999px;background:var(--copper);border:none;color:#fff;font-size:13px;font-weight:600;cursor:pointer">Aceptar cookies</button>
+  </div>
+</div>
+
+<!-- Modal política de privacidad -->
+<div id="politica-modal" role="dialog" aria-modal="true" aria-labelledby="politica-titulo" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.7);padding:20px;overflow-y:auto">
+  <div style="max-width:640px;margin:40px auto;background:#1a1a1a;border:1px solid rgba(245,241,236,.12);border-radius:18px;padding:clamp(24px,4vw,40px)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px">
+      <h2 id="politica-titulo" style="font-family:'Marcellus',Georgia,serif;font-size:26px;color:var(--cream);font-weight:400">Política de Privacidad</h2>
+      <button onclick="cerrarPolitica()" aria-label="Cerrar" style="background:none;border:none;color:var(--text-muted);font-size:28px;cursor:pointer;line-height:1;padding:0;flex-shrink:0">&times;</button>
+    </div>
+    <div style="font-size:14px;color:#a0a8b4;line-height:1.75;display:flex;flex-direction:column;gap:18px">
+      <section>
+        <h3 style="color:var(--cream);font-size:15px;font-weight:600;margin-bottom:6px">1. Responsable del tratamiento</h3>
+        <p><strong style="color:var(--cream)">Peluquería SHADU</strong> — Héctor Niño y Susana Barbosa<br>Carrera 90H #91-52, Engativá, Bogotá, Colombia<br>WhatsApp: 313 485 6080</p>
+      </section>
+      <section>
+        <h3 style="color:var(--cream);font-size:15px;font-weight:600;margin-bottom:6px">2. Datos que recolectamos</h3>
+        <p>Con tu consentimiento, usamos <strong style="color:var(--cream)">Google Analytics 4</strong> para recopilar datos de navegación anónimos: páginas visitadas, tiempo de visita, dispositivo y ubicación aproximada. No recopilamos nombres, correos ni información de pago a través del sitio web. Las citas se gestionan por WhatsApp.</p>
+      </section>
+      <section>
+        <h3 style="color:var(--cream);font-size:15px;font-weight:600;margin-bottom:6px">3. Finalidad del tratamiento</h3>
+        <p>Los datos analíticos se usan exclusivamente para mejorar el sitio web y entender cómo llegan los visitantes. No se usan para publicidad ni se comparten con terceros distintos a Google LLC (proveedor del servicio analítico).</p>
+      </section>
+      <section>
+        <h3 style="color:var(--cream);font-size:15px;font-weight:600;margin-bottom:6px">4. Base legal</h3>
+        <p>Tratamiento basado en tu consentimiento explícito, conforme a la <strong style="color:var(--cream)">Ley 1581 de 2012</strong> y el Decreto 1377 de 2013 de la República de Colombia.</p>
+      </section>
+      <section>
+        <h3 style="color:var(--cream);font-size:15px;font-weight:600;margin-bottom:6px">5. Tus derechos</h3>
+        <p>Tienes derecho a conocer, actualizar, rectificar y suprimir tus datos, y a revocar el consentimiento en cualquier momento. Para ejercerlos escríbenos al <strong style="color:var(--cream)">313 485 6080</strong> por WhatsApp o visítanos en el salón.</p>
+      </section>
+      <section>
+        <h3 style="color:var(--cream);font-size:15px;font-weight:600;margin-bottom:6px">6. Retención y transferencia</h3>
+        <p>Los datos analíticos son procesados por Google LLC bajo sus propias políticas de privacidad. Puedes consultarlas en <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--copper-light)">policies.google.com/privacy</a>. Con la IP anonimizada activada, Google no almacena tu dirección IP completa.</p>
+      </section>
+      <section>
+        <h3 style="color:var(--cream);font-size:15px;font-weight:600;margin-bottom:6px">7. Cookies esenciales vs. analíticas</h3>
+        <p>Este sitio no usa cookies para funcionar. Las únicas cookies son las de Google Analytics, que son opcionales y solo se activan con tu consentimiento.</p>
+      </section>
+      <div style="padding-top:16px;border-top:1px solid rgba(245,241,236,.1);display:flex;gap:10px;flex-wrap:wrap">
+        <button onclick="rechazarCookies();cerrarPolitica()" style="min-height:40px;padding:0 18px;border-radius:999px;border:1px solid rgba(245,241,236,.2);background:transparent;color:var(--text-muted);font-size:13px;cursor:pointer">Rechazar cookies</button>
+        <button onclick="aceptarCookies();cerrarPolitica()" style="min-height:40px;padding:0 20px;border-radius:999px;background:var(--copper);border:none;color:#fff;font-size:13px;font-weight:600;cursor:pointer">Aceptar cookies</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var CLAVE = 'shadu_cookie_consent';
+    var banner = document.getElementById('cookie-banner');
+    var modal  = document.getElementById('politica-modal');
+
+    // Mostrar banner si aún no hay decisión
+    try {
+      if (!localStorage.getItem(CLAVE)) {
+        banner.style.display = 'flex';
+      }
+    } catch(e) {
+      banner.style.display = 'flex';
+    }
+
+    window.aceptarCookies = function() {
+      try { localStorage.setItem(CLAVE, 'aceptado'); } catch(e) {}
+      banner.style.display = 'none';
+      cargarGA();
+    };
+
+    window.rechazarCookies = function() {
+      try { localStorage.setItem(CLAVE, 'rechazado'); } catch(e) {}
+      banner.style.display = 'none';
+    };
+
+    window.abrirPolitica = function() {
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.cerrarPolitica = function() {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    };
+
+    // Cerrar modal con Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.style.display === 'block') cerrarPolitica();
+    });
+
+    // Cerrar modal al hacer clic fuera
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) cerrarPolitica();
+    });
+  })();
+</script>
 
 </body>
 </html>
