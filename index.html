@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Peluquería SHADU — Cortes, Color y Cuidado Capilar en Bogotá | Cra. 90H #91-52</title>
-<meta name="description" content="Peluquería SHADU en Bogotá. 30+ años de experiencia en cortes, coloración, mechas, balayage, cepillados, manicure y pedicure. Atendida por Héctor Niño y Susana Barbosa. Agenda por WhatsApp: 313 485 6080.">
-<meta name="keywords" content="peluquería bogotá, colorista bogotá, mechas bogotá, balayage bogotá, corte de cabello bogotá, cepillado bogotá, manicure bogotá, peluquería shadu, tintura cabello bogotá, iluminaciones bogotá">
+<title>Peluquería SHADU en Engativá, Bogotá | Corte, Color y Balayage</title>
+<meta name="description" content="Peluquería unisex en Engativá, Bogotá, cerca de la Plaza de Mercado de Quirigua. Corte hombre $14.000, mujer $15.000. Mechas, balayage, tintes, cepillados, manicure y pedicure. Abierto martes a domingo. WhatsApp 313 485 6080.">
+<meta name="keywords" content="peluquería engativá, peluquería quirigua bogotá, peluquería unisex, salón de belleza engativá, peluquería cerca, peluquería bogotá, colorista bogotá, mechas bogotá, balayage bogotá, corte de cabello bogotá, cepillado bogotá, manicure bogotá, peluquería shadu, tintura cabello bogotá, iluminaciones bogotá">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
@@ -13,7 +13,7 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="business.business">
-<meta property="og:title" content="Peluquería SHADU — Cortes, Color y Cuidado Capilar en Bogotá">
+<meta property="og:title" content="Peluquería SHADU en Engativá, Bogotá | Corte, Color y Balayage">
 <meta property="og:description" content="30+ años de experiencia en cortes, coloración, mechas, cepillados y uñas. Bogotá. Agenda por WhatsApp.">
 <meta property="og:image" content="https://shadu.co/img/hero.jpg">
 <meta property="og:url" content="https://shadu.co/">
@@ -46,6 +46,12 @@
     gtag('js', new Date());
     gtag('config', GA_ID, {anonymize_ip: true});
   }
+  // Booking happens off-site (WhatsApp/phone), so these clicks are the only measurable conversion.
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href^="tel:"]');
+    if (!a || !window.gtag) return;
+    gtag('event', a.href.indexOf('wa.me') > -1 ? 'whatsapp_click' : 'phone_click', {link_url: a.href});
+  });
   try {
     if (localStorage.getItem('shadu_cookie_consent') === 'aceptado') cargarGA();
   } catch(e) {}
@@ -66,7 +72,7 @@
       "@id": "https://shadu.co/#business",
       "name": "Peluquería SHADU",
       "alternateName": "Shadu Peluquería",
-      "description": "Peluquería en Bogotá con más de 30 años de experiencia. Servicios de corte, coloración, mechas, balayage, iluminaciones, cepillados, manicure y pedicure. Ubicada en la Carrera 90H #91-52, localidad de Engativá. Atendida personalmente por Héctor Niño y Susana Barbosa.",
+      "description": "Peluquería unisex y salón de belleza en Engativá, Bogotá, con más de 30 años de experiencia. Servicios de corte, coloración, mechas, balayage, iluminaciones, cepillados, manicure y pedicure. Ubicada en la Carrera 90H #91-52, localidad de Engativá. Atendida personalmente por Héctor Niño y Susana Barbosa.",
       "url": "https://shadu.co/",
       "telephone": "+573134856080",
       "image": ["https://shadu.co/img/logo.jpg", "https://shadu.co/img/hero.jpg", "https://shadu.co/img/team.jpg"],
@@ -91,22 +97,50 @@
         {"@type": "Brand", "name": "Marcel France"},
         {"@type": "Brand", "name": "Salerm"}
       ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "telephone": "+573134856080",
-        "contactOption": "TollFree",
-        "availableLanguage": "Spanish"
-      },
+      "areaServed": [
+        {"@type": "AdministrativeArea", "name": "Engativá, Bogotá"},
+        {"@type": "City", "name": "Bogotá"}
+      ],
+      "openingHoursSpecification": [
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "08:30", "closes": "18:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "16:00"}
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "reservations",
+          "telephone": "+573134856080",
+          "availableLanguage": "Spanish"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+573132153877",
+          "availableLanguage": "Spanish"
+        }
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Servicios de Peluquería SHADU",
         "itemListElement": [
           {
             "@type": "Offer",
+            "price": "14000",
+            "priceCurrency": "COP",
             "itemOffered": {
               "@type": "Service",
-              "name": "Corte de cabello",
+              "name": "Corte de cabello para hombre",
+              "description": "Corte diseñado según tu rostro, textura y rutina. Mantenimiento, despunte y cambio de look con asesoría.",
+              "provider": {"@type": "Person", "name": "Héctor Niño"}
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "15000",
+            "priceCurrency": "COP",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corte de cabello para mujer",
               "description": "Corte diseñado según tu rostro, textura y rutina. Mantenimiento, despunte y cambio de look con asesoría.",
               "provider": {"@type": "Person", "name": "Héctor Niño"}
             }
@@ -197,7 +231,15 @@
           "name": "¿Dónde queda Peluquería SHADU en Bogotá?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Peluquería SHADU está ubicada en la Carrera 90H #91-52, Bogotá, Colombia. Puedes contactarnos por WhatsApp al 313 485 6080 para confirmar el horario antes de venir."
+            "text": "Peluquería SHADU está ubicada en la Carrera 90H #91-52, Bogotá, Colombia, en la localidad de Engativá, cerca de la Plaza Distrital de Mercado Quirigua. Puedes contactarnos por WhatsApp al 313 485 6080 o llamar al 313 215 3877."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el horario de Peluquería SHADU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Peluquería SHADU abre de martes a sábado de 8:30 a. m. a 6:00 p. m. y los domingos de 9:00 a. m. a 4:00 p. m. Los lunes está cerrado."
           }
         },
         {
@@ -237,7 +279,7 @@
           "name": "¿Tienen promociones entre semana?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. De lunes a viernes hay precios especiales en diferentes servicios. Escríbenos por WhatsApp al 3134856080 para conocer las promos vigentes antes de agendar."
+            "text": "Sí. De martes a viernes hay precios especiales en diferentes servicios. Escríbenos por WhatsApp al 3134856080 para conocer las promos vigentes antes de agendar."
           }
         },
         {
@@ -535,7 +577,7 @@
 <section id="inicio" class="hero" aria-label="Inicio">
   <div class="hero-inner">
     <div style="display:flex;flex-direction:column;gap:28px">
-      <p class="hero-eyebrow">Peluquería · Engativá, Bogotá</p>
+      <p class="hero-eyebrow">Peluquería unisex · Engativá, Bogotá</p>
       <h1 class="hero-h1">Corte y color con más de <em>30 años</em> de oficio.</h1>
       <p class="hero-desc">Héctor Niño diseña tu corte — para hombre y mujer. Susana Barbosa es experta en color, tinturas, cepillados, manicure y pedicure. Trabajamos con productos Marcel France y Salerm. Antes de tocar tu cabello, te escuchamos.</p>
       <div class="hero-ctas">
@@ -587,7 +629,7 @@
     <div class="stat">
       <p class="stat-num white">L–V</p>
       <p class="stat-title">promociones entre semana</p>
-      <p class="stat-desc">Precios especiales cada día de lunes a viernes.</p>
+      <p class="stat-desc">Precios especiales cada día de martes a viernes.</p>
     </div>
     <div class="stat">
       <p class="stat-num white" style="font-size:clamp(28px,3vw,42px)">$14.000</p>
@@ -830,12 +872,11 @@
     <div class="section-header" style="margin-bottom:0">
       <div style="display:flex;flex-direction:column;gap:16px">
         <p class="section-label light">Promociones entre semana</p>
-        <h2 id="promos-titulo" class="section-h" style="color:var(--cream)">De lunes a viernes, tu cita <em style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;color:var(--copper-light)">rinde más</em></h2>
+        <h2 id="promos-titulo" class="section-h" style="color:var(--cream)">De martes a viernes, tu cita <em style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;color:var(--copper-light)">rinde más</em></h2>
       </div>
       <p class="section-lead" style="color:#C9C0B8">Si puedes venir entre semana, aprovecha precios especiales en los servicios que más se piden. Pregunta por la promo vigente al agendar.</p>
     </div>
     <div class="promos-grid">
-      <div class="promo-card"><p class="promo-day">LUNES</p><p class="promo-num">🎨</p><p class="promo-svc">Promo en tinturas y retoque de raíz</p></div>
       <div class="promo-card"><p class="promo-day">MARTES</p><p class="promo-num">💅</p><p class="promo-svc">Promo en manicure + pedicure</p></div>
       <div class="promo-card"><p class="promo-day">MIÉRCOLES</p><p class="promo-num">✨</p><p class="promo-svc">Promo en cepillados</p></div>
       <div class="promo-card"><p class="promo-day">JUEVES</p><p class="promo-num">✂️</p><p class="promo-svc">Promo en corte con Héctor</p></div>
@@ -843,7 +884,7 @@
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center">
       <a class="btn-primary btn-copper" href="https://wa.me/573134856080?text=Hola%2C%20quiero%20conocer%20las%20promos%20de%20esta%20semana" target="_blank" rel="noopener" style="font-size:16px;min-height:54px;padding:0 28px">Reservar mi promo</a>
-      <p style="font-size:14px;color:#A39990">Válidas de lunes a viernes. Consultar disponibilidad y condiciones.</p>
+      <p style="font-size:14px;color:#A39990">Válidas de martes a viernes. Consultar disponibilidad y condiciones.</p>
     </div>
   </div>
 </section>
@@ -948,11 +989,15 @@
       </details>
       <details>
         <summary role="listitem">¿Dónde queda Peluquería SHADU en Bogotá?<span class="faq-plus" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">Estamos ubicados en la <strong>Carrera 90H #91-52, localidad de Engativá, Bogotá</strong>. Escríbenos por WhatsApp al <strong>313 485 6080</strong> para confirmar disponibilidad antes de visitarnos.</p>
+        <p class="faq-answer">Estamos ubicados en la <strong>Carrera 90H #91-52, localidad de Engativá, Bogotá</strong>, cerca de la Plaza de Mercado de Quirigua. Escríbenos por WhatsApp al <strong>313 485 6080</strong> o llámanos al <strong>313 215 3877</strong>.</p>
+      </details>
+      <details>
+        <summary role="listitem">¿Cuál es el horario de Peluquería SHADU?<span class="faq-plus" aria-hidden="true">+</span></summary>
+        <p class="faq-answer">Abrimos de <strong>martes a sábado de 8:30 a. m. a 6:00 p. m.</strong> y los <strong>domingos de 9:00 a. m. a 4:00 p. m.</strong> Los lunes estamos cerrados.</p>
       </details>
       <details>
         <summary role="listitem">¿Cómo funcionan las promociones entre semana?<span class="faq-plus" aria-hidden="true">+</span></summary>
-        <p class="faq-answer">Aplican de lunes a viernes. Cada día tiene un servicio con precio especial. Escríbenos y te contamos la promo vigente antes de reservar tu cita.</p>
+        <p class="faq-answer">Aplican de martes a viernes. Cada día tiene un servicio con precio especial. Escríbenos y te contamos la promo vigente antes de reservar tu cita.</p>
       </details>
       <details>
         <summary role="listitem">¿Qué medios de pago aceptan?<span class="faq-plus" aria-hidden="true">+</span></summary>
@@ -1019,6 +1064,14 @@
         <div>
           <dt class="contact-dt">WhatsApp</dt>
           <dd class="contact-dd"><a href="https://wa.me/573134856080" target="_blank" rel="noopener" style="color:var(--copper)">313 485 6080</a></dd>
+        </div>
+        <div>
+          <dt class="contact-dt">Teléfono</dt>
+          <dd class="contact-dd"><a href="tel:+573132153877" style="color:var(--copper)">313 215 3877</a></dd>
+        </div>
+        <div>
+          <dt class="contact-dt">Horario</dt>
+          <dd class="contact-dd">Martes a sábado: 8:30 a. m. – 6:00 p. m.<br>Domingo: 9:00 a. m. – 4:00 p. m.<br>Lunes: cerrado</dd>
         </div>
       </dl>
     </div>
